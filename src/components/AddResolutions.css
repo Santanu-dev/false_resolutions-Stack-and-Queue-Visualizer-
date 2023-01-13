@@ -1,0 +1,117 @@
+.add-resolutions{
+    margin: 2em;
+    padding: 1em 1em;
+    border: 1px solid var(--shadow_clr);
+    border-radius: 0.8em;
+    box-shadow: var(--box-shadow);
+    animation: var(--load-transition);
+}
+
+.form-group{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control{
+    margin: 10px;
+    height: 1.3em;
+    width: 50%;
+    border: none;
+    background: transparent;
+    border-bottom: 1.5px solid var(--input-text);
+    color: var(--input-text);
+    padding: 0 14px;
+    font-size: 28px;
+    animation: var(--button-ziggle);
+}
+
+.form-control:focus, .form-control:active{
+    outline: none;
+}
+
+.select-box, .addButton{
+    cursor: pointer;
+    width: 10em;
+    background-color: transparent;
+    margin: 0 12px;
+    padding: 5px;
+    font-size: 22px;
+    color: var(--input-text);
+    border-radius: 10px;
+    outline: none;
+    animation: var(--button-ziggle);
+}
+
+.addButton:hover{
+    box-shadow: 0 0 3px var(--text-primary);
+}
+
+.addButton:active{
+    transform: scale(0.8);
+    transition: transform 250ms ease;
+}
+
+.select-box > *{
+    margin: 0 12px;
+    padding: 5px;
+    font-size: 22px;
+    background: transparent;
+}
+.btn-group{
+    display: flex;
+    flex-direction: row;
+}
+
+.addButton{
+    margin: 10px;
+    border: 1px solid var(--input-text);
+    padding: 6px;
+    background-color: var(--text-primary);
+    color: #0009;
+}
+
+@media screen and (width < 1400px) {
+    .form-group{
+        flex-direction: column;
+    }
+    .form-control{
+        margin: 10px;
+        width: 100%;
+    }
+}
+
+@media screen and (width < 700px) {
+    .form-group{
+        flex-direction: column;
+    }
+    .form-control{
+        height: 2em;
+        margin: 10px;
+        width: 100%;
+        font-size: 18px;
+    }
+    .btn-group{justify-content: space-between;}
+    .addButton, .select-box{
+        font-size: 18px;
+        margin: 10px 5px;
+        width: 8em;
+    }
+    .errorText{
+        font-size: 18px;
+    }
+}
+
+@media screen and (width < 450px) {
+    .addButton, .select-box{
+        font-size: 14px;
+        margin: 10px 5px;
+        width: 8em;
+    }
+    .errorText{
+        font-size: 12px;
+    }
+}
+

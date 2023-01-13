@@ -1,38 +1,171 @@
-.App {
-  text-align: center;
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-primary);
+    font-size: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+    --primary_bg : #1C1D1F;
+    --shadow_clr: #3d3d3d;
+    --text-primary: #7B8B51;
+    --text-secondary: #B85219;
+    --box-shadow: 0 0 10px var(--shadow_clr);
+    --input-text: #6b6969;;
+    --table-clr: #696562;
+    --table-clr1: #5f2501;
+    --load-transition: onload 500ms ease-in-out forwards;
+    --button-ziggle: ziggle 1.5s 500ms ease-out forwards;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-img > img{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    box-shadow: inset 0 0 1000px var(--shadow_clr);
+    background-size: cover;
+    background-repeat: no-repeat; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-app{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: var(--primary_bg);
+    opacity: 0.9;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    animation: var(--load-transition);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.year{
+    margin: 0.5em 1em;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.two, .three{
+    font-size: 1.5em;
+    padding: 0 12px;
+}
+
+.two{
+    background-color: var(--text-secondary); 
+}
+.three{
+    background-color: var(--text-primary);
+    color: var(--text-secondary);
+}
+
+.two:hover, .three:hover{
+    box-shadow: 0 0 15px var(--shadow_clr);
+}
+
+.brand-heading{
+    margin: 0.5em 1em;
+    padding: 10px;
+    width: max-content;
+    border: 1px solid var(--shadow_clr);
+    box-shadow: var(--box-shadow);
+    background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
+    background-clip: text;
+    color: transparent;
+    pointer-events: none;
+    font-family: 'Brush Script MT', cursive;
+    animation: var(--load-transition);
+}
+
+.brand-heading, .brand-heading> *{
+    font-size: 48px;
+}
+
+.brand-heading > span {
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes onload {
+    from{
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes ziggle {
+    0%, 100%{
+        transform: translateY(0px);
+    }
+    15%{
+        transform: translateY(-20px);
+    }
+    30%{
+        transform: translateY(10px);
+    }
+
+    45%{
+        transform: translateY(-10px);
+    }
+    60%{
+        transform: translateY(5px);
+    }
+    75%{
+        transform: translateY(-5px);
+    }
+    85%{
+        transform: translateY(3px);
+    }
+}
+
+@media screen and (width < 750px) {
+    .brand-heading, .brand-heading > *{
+        font-size: 35px;
+    }
+
+    .brand-heading{
+        margin: 0.7em 0.5em;
+        padding: 12px;
+    }
+}
+
+@media screen and (width < 500px) {
+    .App-img > img{
+        height: 115vh;
+        width: 115vw;
+        position: absolute;
+        box-shadow: inset 0 0 1000px var(--shadow_clr);
+        background-size: cover;
+        background-repeat: no-repeat; 
+    }
+    
+    .main-app{
+        overflow-x: hidden;
+        height: 115vh;
+        width: 115vw;
+        position: absolute;
+        background: var(--primary_bg);
+        opacity: 0.9;
+    }
+    
+}
+
+@media screen and (width < 450px) {
+    .brand-heading, .brand-heading > *{
+        font-size: 28px;
+    }
+
+    .brand-heading{
+        margin: 0.7em 0.5em;
+        padding: 12px;
+    }
 }

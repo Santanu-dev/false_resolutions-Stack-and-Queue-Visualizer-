@@ -1,0 +1,194 @@
+.queue{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.queuemid{
+    height: 25vh;
+    width: 50vw;
+    border-top: 2px solid #0009;
+    border-bottom: 2px solid #0009;
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: var(--box-shadow);
+}
+
+.queueItem{
+    display: flex;
+    margin: 8px;
+    width: 10vw;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: width 800ms ease;
+    border-radius: 10px;
+}
+
+.queueItem:last-child{
+    animation: enqueue 800ms ease-in forwards;
+}
+
+.queueItem:hover, .queueItem:active{
+    width: 100%;
+}
+
+.rightArrow{
+    transform: rotateZ(90deg) rotateY(180deg) translateY(2em) translateX(1em);
+}
+
+.leftArrow{
+    transform: translateY(2em) translateX(3em);
+}
+
+.dequeueAnimation:first-child{
+    animation: dequeue 800ms ease-in;
+}
+
+@keyframes enqueue {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes dequeue {
+    0%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    50%{
+        transform: translateX(150%);
+        opacity: 0.5;
+    }
+
+    100%{
+        transform: translateX(150%) translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.infoQueueBtn{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 45px;
+    font-weight: 800;
+    z-index: 3;
+}
+
+.infoQueueBtn:hover{
+    box-shadow: var(--box-shadow);
+}
+.infoQueueBtn:active{
+    transform: scale(0.9);
+}
+
+.queueInfo{
+    position: absolute;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    left: 65vw;
+    top: 45vh;
+}
+
+.queueInfoClose{
+    animation: infoClose 850ms ease-in-out forwards;
+}
+
+.queueInfoOpen{
+    animation: queueInfo 550ms ease-in-out forwards;
+}
+
+@keyframes queueInfo {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes infoClose {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes shift {
+    0%{
+        transform: translateX(-100px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (width < 1200px) {
+    h1{
+        font-size: 24px;
+    }
+
+    .queueleft > h1{
+        margin-left: 2em;
+    }
+
+    .queueright > h1{
+        margin-left: 10px;
+        transform: translateY(-2em);
+    }
+
+    .leftArrow{
+        transform: translateY(0em) translateX(1em);
+    }
+    .rightArrow{
+        transform: rotateZ(90deg) rotateY(180deg) translateY(0.5em) translateX(1em);
+    }
+    .queueInfo, .infoQueueBtn{
+        display: none;
+    }
+}
+
+@media screen and (width < 750px) {
+    h1{
+        font-size: 18px;
+        transform: translateY(5em);
+    }
+    .leftArrow{
+        transform: translateY(3em) translateX(0em);
+        height: 3em;
+    }
+    .rightArrow{
+        height: 3em;
+        transform: rotateZ(90deg) rotateY(180deg) translateY(0em) translateX(1em);
+    }
+    .queuemid{
+        height: 15vh;
+        width: 50vw;
+    }
+    .queueItem{
+        font-size: 18px;
+    }
+}

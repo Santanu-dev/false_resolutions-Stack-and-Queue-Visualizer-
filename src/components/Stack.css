@@ -1,0 +1,135 @@
+.stackArea{
+    margin: 0;
+    padding: 1em 1em;
+    font-size: 14px;
+    perspective: 2000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.storageBucket{
+    margin-bottom: 10px;
+    max-height: 14em;
+    width: 20em;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+.stackHeading{
+    margin: 0 20px;
+    padding: 5px 2em;
+    background: transparent;
+    border-radius: 5px;
+    box-shadow:  var(--box-shadow);
+    text-align: center;
+}
+
+.leftSection > img {
+    position: absolute;
+    height: 9em;
+    transform: rotateZ(180deg);
+    margin: 14px;
+    top: 0;
+    left: 10vw;
+    z-index: -1;
+}
+
+.text{
+    position: absolute;
+    margin: 0 10px;
+    padding: 0 10px;
+    top: 11em;
+    left: 5em;
+}
+
+.popBtn{
+    cursor: pointer;
+    width: 10em;
+    margin: 0 12px;
+    padding: 5px;
+    font-size: 22px;
+    color: #f4f4f4;
+    background: rgb(196, 60, 60);
+    border-radius: 1em;
+    border: none;
+}
+
+.popBtn:hover{
+    box-shadow: 0 0 3px var(--text-primary);
+}
+
+.popBtn:active{
+    transform: scale(0.9);
+    transition: transform 250ms ease;
+}
+
+.info>img{
+    width: 20vw;
+    height: 40vh;
+    border-radius: 10px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (width < 1700px) {
+    .leftSection > img{
+        left: 5vw;
+    }
+}
+
+@media screen and (width < 1400px) {
+    .leftSection > img{
+        left: 0vw;
+    }
+    .RightSection{display: none;}
+    .text{
+        font-size: 18px;
+        top: 10em;
+        left: 10em;
+    }
+}
+
+@media screen and (width < 1000px) {
+    .leftSection > img{
+        height: 3em;
+        left: 0vw;
+    }
+    .stackHeading{
+        font-size: 24px;
+        margin: 0 7em;
+        padding: 5px 0.5em;
+    }
+    .text{
+        font-size: 18px;
+        top: 2em;
+        left: -0.5em;
+    }
+}
+
+@media screen and (width < 450px) {
+    .leftSection > img{
+        height: 2em;
+        left: 0vw;
+    }
+    .stackHeading{
+        font-size: 18px;
+        margin: 0 11em;
+        padding: 5px 0.5em;
+    }
+    .text{
+        font-size: 14px;
+        top: 2em;
+        left: -0.5em;
+    }
+}
+
